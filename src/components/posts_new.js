@@ -27,9 +27,12 @@ class PostsNew extends Component {
         );
     }
 
-    onSubmit(values) {
+    onSubmit(values) {                
         // values reflects values from forms; this === component
-        this.props.createPost(values);
+        this.props.createPost(values, () => {
+            // react router passes props to components where are routed to - hence we use it here; string just needs to match route in our application
+            this.props.history.push('/');
+        });        
     }
 
     render() {
